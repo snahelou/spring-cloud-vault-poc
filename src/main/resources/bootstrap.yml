@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    vault:
+      #https://cloud.spring.io/spring-cloud-vault/multi/multi_vault.config.backends.html
+      kv:
+        enabled: true
+        application-name: metrics-app-example
+      host: localhost
+      port: 8200
+      scheme: http
+      uri: http://localhost:8200
+      connection-timeout: 5000
+      read-timeout: 15000
+      token: vault-root-token
+      #https://cloud.spring.io/spring-cloud-vault/multi/multi_vault.config.backends.database-backends.html
+      database:
+        enabled: true
+        role: member
+        backend: postgresql

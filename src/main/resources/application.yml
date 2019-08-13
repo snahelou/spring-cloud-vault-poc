@@ -1,0 +1,41 @@
+app:
+  name: metrics-app-example
+  version: "@project.version@"
+
+management:
+  security:
+    enabled: ${SECURITY_ENABLED:false}
+  endpoint:
+    health:
+      show-details: ${ACTUATOR_HEALTH_SHOWDETAILS:never}
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/demo
+    #username: postgres
+    #password: password
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: none
