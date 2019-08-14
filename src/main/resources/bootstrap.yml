@@ -2,9 +2,9 @@ spring:
   cloud:
     vault:
       #https://cloud.spring.io/spring-cloud-vault/multi/multi_vault.config.backends.html
-      kv:
-        enabled: true
-        application-name: metrics-app-example
+      #kv:
+      #  enabled: true
+      #  application-name: metrics-app-example
       host: localhost
       port: 8200
       scheme: http
@@ -15,5 +15,8 @@ spring:
       #https://cloud.spring.io/spring-cloud-vault/multi/multi_vault.config.backends.database-backends.html
       database:
         enabled: true
-        role: member
+        #role: member # dynamic
+        role: springstatic # static
         backend: postgresql
+        # https://github.com/spring-cloud/spring-cloud-vault/pull/348
+        static-role: true

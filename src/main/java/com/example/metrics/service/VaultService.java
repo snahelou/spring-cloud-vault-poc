@@ -11,7 +11,7 @@ public class VaultService  implements IVaultService {
     @Autowired
     Environment env;
 
-    @Value("${foo}")
+    @Value("${foo:null}")
     private String foo;
 
     public String findFoo() {
